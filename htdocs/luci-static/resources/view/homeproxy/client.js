@@ -1132,7 +1132,7 @@ return view.extend({
 		so.depends({'homeproxy.config.routing_mode': 'custom', '!reverse': true});
 		so.load = function(section_id) {
 			return L.resolveDefault(callReadDomainList('direct_list')).then((res) => {
-				return res.content;
+				return res ? res.content : '';
 			}, {});
 		}
 		so.write = function(section_id, value) {
